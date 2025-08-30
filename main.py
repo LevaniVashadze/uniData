@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
+import json
 
 st.set_page_config(
     page_title="2025 Georgian University Grant Data Analysis | Rankings & Statistics",
@@ -353,6 +354,18 @@ lang = st.selectbox(
 
 t = TRANSLATIONS[lang]
 
+# Load translation data
+@st.cache_data
+def load_translations():
+    try:
+        with open("universities.json", "r", encoding="utf-8") as f:
+            universities_trans = json.load(f)
+        with open("programs.json", "r", encoding="utf-8") as f:
+            programs_trans = json.load(f)
+        return universities_trans, programs_trans
+    except FileNotFoundError:
+        return {}, {}
+
 # Load data
 @st.cache_data
 def load_data():
@@ -361,12 +374,100 @@ def load_data():
     filtered_data["გრანტი %"].fillna(0, inplace=True)
     return filtered_data
 
+def apply_translations(data, lang, universities_trans, programs_trans):
+    """Apply translations to the data based on selected language"""
+    if lang == "en":
+        data_translated = data.copy()
+        
+        # Create a reverse mapping for universities (English -> Georgian)
+        uni_reverse_map = {}
+        for georgian_name, trans_data in universities_trans.items():
+            english_name = trans_data.get("english", georgian_name)
+            uni_reverse_map[english_name] = georgian_name
+        
+        # Translate program names first (using original Georgian university names)
+        if programs_trans:
+            def translate_program(row):
+                key = f"{row['უსდ']}_{row['პროგ. კოდი']}"
+                return programs_trans.get(key, {}).get("english", row["პროგრამა"])
+            
+            data_translated["პროგრამა"] = data_translated.apply(translate_program, axis=1)
+        
+        # Translate subject names
+        subject_translations = {
+            "ფიზიკა": "Physics",
+            "ქიმია": "Chemistry", 
+            "ხელოვნება": "Art",
+            "მათემატიკა": "Mathematics",
+            "გეოგრაფია": "Geography",
+            "ლიტერატურა": "Literature",
+            "სამოქალაქო განათლება": "Civic Education",
+            "ისტორია": "History",
+            "ბიოლოგია": "Biology"
+        }
+        
+        for col in ["არჩევითი საგანი 1", "არჩევითი საგანი 2"]:
+            if col in data_translated.columns:
+                data_translated[col] = data_translated[col].map(
+                    lambda x: subject_translations.get(x, x) if pd.notna(x) else x
+                )
+        
+        # Translate university names last
+        if universities_trans:
+            data_translated["უსდ"] = data_translated["უსდ"].map(
+                lambda x: universities_trans.get(x, {}).get("english", x)
+            )
+        
+        return data_translated
+    return data
+
+universities_trans, programs_trans = load_translations()
 filtered_data = load_data()
 
 st.title(t["title"])
 
-# Use all data without filtering
-display_data = filtered_data
+# Apply translations to data and use translated data for display
+display_data = apply_translations(filtered_data, lang, universities_trans, programs_trans)
+
+# Column name translations
+column_translations = {
+    "უსდ კოდი": "University Code",
+    "უსდ": "University",
+    "პროგ. კოდი": "Program Code", 
+    "პროგრამა": "Program",
+    "საშ. გრანტი %": "Avg Grant %",
+    "პროგრამების რაოდ.": "Number of Programs",
+    "სტუდ. 50%": "Students 50%",
+    "სტუდ. 70%": "Students 70%",
+    "სტუდ. 100%": "Students 100%",
+    "სულ სტუდ.": "Total Students",
+    "სტუდ. რაოდ.": "Number of Students",
+    "არჩევითი საგანი": "Optional Subject",
+    "გრანტი %": "Grant %",
+    "საგამოცდო": "Exam Subjects",
+    "ქართული ენა ნედლი ქულა": "Georgian Language Raw Score",
+    "ქართული ენა სკალ.": "Georgian Language Scale",
+    "უცხო ენა": "Foreign Language",
+    "უცხო ენა ნედლი ქულა": "Foreign Language Raw Score",
+    "უცხო ენა სკალ.": "Foreign Language Scale",
+    "არჩევითი საგანი 1": "Optional Subject 1",
+    "არჩევითი ნედლი ქულა": "Optional Raw Score",
+    "არჩევითი სკალ.": "Optional Scale",
+    "არჩევითი საგანი 2": "Optional Subject 2",
+    "არჩევითი 2 ნედლი ქულა": "Optional 2 Raw Score",
+    "არჩევითი 2 სკალ.": "Optional 2 Scale",
+    "საკონკ. ქულა": "Total Score",
+    "არჩევანი": "Choice",
+    "აკად/მოსამზად": "Academic/Preparatory"
+}
+
+def translate_columns(df, lang):
+    """Translate column names based on language"""
+    if lang == "en":
+        df_translated = df.copy()
+        df_translated.columns = [column_translations.get(col, col) for col in df_translated.columns]
+        return df_translated
+    return df
 
 # Main content tabs
 tab1, tab2, tab3, tab4, tab5 = st.tabs([t["university_level"], t["program_level"], t["subject_level"], t["raw_data"], t["methodology"]])
@@ -401,7 +502,8 @@ with tab1:
                       x="უსდ", y="საშ. გრანტი %",
                       title=t["avg_grant_by_uni"],
                       color="საშ. გრანტი %",
-                      color_continuous_scale="Viridis")
+                      color_continuous_scale="Viridis",
+                      hover_data=["სულ სტუდ."])
     fig_grant.update_layout(
         xaxis_title="",
         xaxis_showticklabels=False,
@@ -410,6 +512,12 @@ with tab1:
         font=dict(size=10),
         title_font_size=14,
         coloraxis_showscale=False  # Hide color scale on mobile
+    )
+    # Update hover template to show university names properly
+    fig_grant.update_traces(
+        hovertemplate='<b>%{x}</b><br>' + 
+                      ('Avg Grant %' if lang == "en" else 'საშ. გრანტი %') + ': %{y:.1f}%<br>' +
+                      ('Total Students' if lang == "en" else 'სულ სტუდ.') + ': %{customdata[0]}<extra></extra>'
     )
     st.plotly_chart(fig_grant, use_container_width=True)
 
@@ -421,21 +529,21 @@ with tab1:
         x=uni_data['უსდ'],
         y=uni_data['სტუდ. 50%'],
         marker_color='lightblue',
-        hovertemplate='<b>%{x}</b><br>50% Grant: %{y}<extra></extra>'
+        hovertemplate='<b>%{x}</b><br>' + t["50_grant"] + ': %{y}<extra></extra>'
     ))
     fig_grants.add_trace(go.Bar(
         name=t["70_grant"],
         x=uni_data['უსდ'],
         y=uni_data['სტუდ. 70%'],
         marker_color='orange',
-        hovertemplate='<b>%{x}</b><br>70% Grant: %{y}<extra></extra>'
+        hovertemplate='<b>%{x}</b><br>' + t["70_grant"] + ': %{y}<extra></extra>'
     ))
     fig_grants.add_trace(go.Bar(
         name=t["100_grant"],
         x=uni_data['უსდ'],
         y=uni_data['სტუდ. 100%'],
         marker_color='green',
-        hovertemplate='<b>%{x}</b><br>100% Grant: %{y}<extra></extra>'
+        hovertemplate='<b>%{x}</b><br>' + t["100_grant"] + ': %{y}<extra></extra>'
     ))
     fig_grants.update_layout(
         barmode='stack',
@@ -461,7 +569,9 @@ with tab1:
 
     # University data table
     st.subheader(t["uni_summary_table"])
-    st.dataframe(uni_data, use_container_width=True)
+    # Translate column names for display
+    uni_data_display = translate_columns(uni_data, lang)
+    st.dataframe(uni_data_display, use_container_width=True)
 
     # Total grant money pie chart
     st.subheader(t["total_grant_money"])
@@ -534,26 +644,26 @@ with tab2:
 
     fig_prog_dist = go.Figure()
     fig_prog_dist.add_trace(go.Bar(
-        name='50% Grant',
+        name=t["50_grant"],
         x=list(range(len(top_30_programs))),
         y=top_30_programs['სტუდ. 50%'],
-        hovertemplate='<b>%{customdata}</b><br>50% Grant: %{y}<extra></extra>',
+        hovertemplate='<b>%{customdata}</b><br>' + t["50_grant"] + ': %{y}<extra></extra>',
         customdata=top_30_programs['პროგრამა'],
         marker_color='lightblue'
     ))
     fig_prog_dist.add_trace(go.Bar(
-        name='70% Grant',
+        name=t["70_grant"],
         x=list(range(len(top_30_programs))),
         y=top_30_programs['სტუდ. 70%'],
-        hovertemplate='<b>%{customdata}</b><br>70% Grant: %{y}<extra></extra>',
+        hovertemplate='<b>%{customdata}</b><br>' + t["70_grant"] + ': %{y}<extra></extra>',
         customdata=top_30_programs['პროგრამა'],
         marker_color='orange'
     ))
     fig_prog_dist.add_trace(go.Bar(
-        name='100% Grant',
+        name=t["100_grant"],
         x=list(range(len(top_30_programs))),
         y=top_30_programs['სტუდ. 100%'],
-        hovertemplate='<b>%{customdata}</b><br>100% Grant: %{y}<extra></extra>',
+        hovertemplate='<b>%{customdata}</b><br>' + t["100_grant"] + ': %{y}<extra></extra>',
         customdata=top_30_programs['პროგრამა'],
         marker_color='green'
     ))
@@ -589,7 +699,9 @@ with tab2:
     else:
         prog_display = prog_data
 
-    st.dataframe(prog_display, use_container_width=True)
+    # Translate column names for display
+    prog_display_translated = translate_columns(prog_display, lang)
+    st.dataframe(prog_display_translated, use_container_width=True)
 
 with tab3:
     st.header(t["subject_analysis"])
@@ -655,7 +767,9 @@ with tab3:
     else:
         subject_display = subject_data
 
-    st.dataframe(subject_display, use_container_width=True)
+    # Translate column names for display
+    subject_display_translated = translate_columns(subject_display, lang)
+    st.dataframe(subject_display_translated, use_container_width=True)
 
 with tab4:
     st.header(t["raw_data_view"])

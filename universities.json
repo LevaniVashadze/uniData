@@ -1,0 +1,282 @@
+{
+  "სსიპ - ივანე ჯავახიშვილის სახელობის თბილისის სახელმწიფო უნივერსიტეტი": {
+    "code": 1,
+    "georgian": "სსიპ - ივანე ჯავახიშვილის სახელობის თბილისის სახელმწიფო უნივერსიტეტი",
+    "english": "LEPL - Ivane Javakhishvili Tbilisi State University"
+  },
+  "სსიპ - თბილისის ვანო სარაჯიშვილის სახელობის სახელმწიფო კონსერვატორია": {
+    "code": 2,
+    "georgian": "სსიპ - თბილისის ვანო სარაჯიშვილის სახელობის სახელმწიფო კონსერვატორია",
+    "english": "LEPL - Vano Sarajishvili Tbilisi State Conservatory"
+  },
+  "სსიპ - საქართველოს ტექნიკური უნივერსიტეტი": {
+    "code": 3,
+    "georgian": "სსიპ - საქართველოს ტექნიკური უნივერსიტეტი",
+    "english": "LEPL - Georgian Technical University"
+  },
+  "სსიპ - საქართველოს შოთა რუსთაველის თეატრისა და კინოს სახელმწიფო უნივერსიტეტი": {
+    "code": 4,
+    "georgian": "სსიპ - საქართველოს შოთა რუსთაველის თეატრისა და კინოს სახელმწიფო უნივერსიტეტი",
+    "english": "LEPL - Shota Rustaveli State University of Theater and Cinema of Georgia"
+  },
+  "ა(ა)იპ - საქართველოს აგრარული უნივერსიტეტი ": {
+    "code": 5,
+    "georgian": "ა(ა)იპ - საქართველოს აგრარული უნივერსიტეტი ",
+    "english": "(A) Ip - Agrarian University of Georgia"
+  },
+  "სსიპ - თბილისის სახელმწიფო სამედიცინო უნივერსიტეტი": {
+    "code": 6,
+    "georgian": "სსიპ - თბილისის სახელმწიფო სამედიცინო უნივერსიტეტი",
+    "english": "LEPL - Tbilisi State Medical University"
+  },
+  "სსიპ - აკაკი წერეთლის სახელმწიფო უნივერსიტეტი": {
+    "code": 9,
+    "georgian": "სსიპ - აკაკი წერეთლის სახელმწიფო უნივერსიტეტი",
+    "english": "LEPL - Akaki Tsereteli State University"
+  },
+  "სსიპ - ილიას სახელმწიფო უნივერსიტეტი": {
+    "code": 10,
+    "georgian": "სსიპ - ილიას სახელმწიფო უნივერსიტეტი",
+    "english": "LEPL - Ilia State University"
+  },
+  "სსიპ - სოხუმის სახელმწიფო უნივერსიტეტი": {
+    "code": 12,
+    "georgian": "სსიპ - სოხუმის სახელმწიფო უნივერსიტეტი",
+    "english": "LEPL - Sokhumi State University"
+  },
+  "სსიპ - სამცხე - ჯავახეთის სახელმწიფო უნივერსიტეტი": {
+    "code": 14,
+    "georgian": "სსიპ - სამცხე - ჯავახეთის სახელმწიფო უნივერსიტეტი",
+    "english": "LEPL - Samtskhe - Javakheti State University"
+  },
+  "შპს - ევროპის ცენტრალური უნივერსიტეტი": {
+    "code": 19,
+    "georgian": "შპს - ევროპის ცენტრალური უნივერსიტეტი",
+    "english": "Ltd - Europe Central University"
+  },
+  "შპს - გრიგოლ რობაქიძის სახელობის უნივერსიტეტი": {
+    "code": 33,
+    "georgian": "შპს - გრიგოლ რობაქიძის სახელობის უნივერსიტეტი",
+    "english": "Grigol Robakidze University Ltd"
+  },
+  "შპს - თბილისის თავისუფალი უნივერსიტეტი": {
+    "code": 36,
+    "georgian": "შპს - თბილისის თავისუფალი უნივერსიტეტი",
+    "english": "Ltd - Tbilisi Free University"
+  },
+  "შპს - პეტრე შოთაძის სახელობის თბილისის სამედიცინო აკადემია": {
+    "code": 40,
+    "georgian": "შპს - პეტრე შოთაძის სახელობის თბილისის სამედიცინო აკადემია",
+    "english": "Petre Shotadze Tbilisi Medical Academy Ltd"
+  },
+  "შპს - დავით ტვილდიანის სამედიცინო უნივერსიტეტი": {
+    "code": 52,
+    "georgian": "შპს - დავით ტვილდიანის სამედიცინო უნივერსიტეტი",
+    "english": "Ltd - David Tvildiani Medical University"
+  },
+  "სსიპ - სასწავლო უნივერსიტეტი - ბათუმის სახელმწიფო საზღვაო აკადემია": {
+    "code": 53,
+    "georgian": "სსიპ - სასწავლო უნივერსიტეტი - ბათუმის სახელმწიფო საზღვაო აკადემია",
+    "english": "LEPL - Teaching University - Batumi State Maritime Academy"
+  },
+  "შპს - შავი ზღვის საერთაშორისო უნივერსიტეტი": {
+    "code": 64,
+    "georgian": "შპს - შავი ზღვის საერთაშორისო უნივერსიტეტი",
+    "english": "Ltd - International Black Sea University"
+  },
+  "სსიპ - იაკობ გოგებაშვილის სახელობის თელავის სახელმწიფო უნივერსიტეტი": {
+    "code": 71,
+    "georgian": "სსიპ - იაკობ გოგებაშვილის სახელობის თელავის სახელმწიფო უნივერსიტეტი",
+    "english": "LEPL - Iakob Gogebashvili Telavi State University"
+  },
+  "შპს - ალტე უნივერსიტეტი": {
+    "code": 85,
+    "georgian": "შპს - ალტე უნივერსიტეტი",
+    "english": "Ltd - Alt University"
+  },
+  "შპს - სულხან-საბა ორბელიანის უნივერსიტეტი": {
+    "code": 88,
+    "georgian": "შპს - სულხან-საბა ორბელიანის უნივერსიტეტი",
+    "english": "Ltd - Sulkhan -Saba Orbeliani University"
+  },
+  "სსიპ - შოთა მესხიას ზუგდიდის სახელმწიფო უნივერსიტეტი": {
+    "code": 97,
+    "georgian": "სსიპ - შოთა მესხიას ზუგდიდის სახელმწიფო უნივერსიტეტი",
+    "english": "LEPL - Shota Meskhia Zugdidi State University"
+  },
+  "სსიპ - თბილისის აპოლონ ქუთათელაძის სახელობის სახელმწიფო სამხატვრო აკადემია": {
+    "code": 98,
+    "georgian": "სსიპ - თბილისის აპოლონ ქუთათელაძის სახელობის სახელმწიფო სამხატვრო აკადემია",
+    "english": "LEPL - Tbilisi State Academy of Fine Arts"
+  },
+  "სსიპ - ბათუმის შოთა რუსთაველის სახელმწიფო უნივერსიტეტი": {
+    "code": 114,
+    "georgian": "სსიპ - ბათუმის შოთა რუსთაველის სახელმწიფო უნივერსიტეტი",
+    "english": "LEPL - Batumi Shota Rustaveli State University"
+  },
+  "შპს - კავკასიის საერთაშორისო უნივერსიტეტი": {
+    "code": 115,
+    "georgian": "შპს - კავკასიის საერთაშორისო უნივერსიტეტი",
+    "english": "Ltd - Caucasus International University"
+  },
+  "შპს - ქართულ-ამერიკული უნივერსიტეტი": {
+    "code": 120,
+    "georgian": "შპს - ქართულ-ამერიკული უნივერსიტეტი",
+    "english": "Ltd - Georgian -American University"
+  },
+  "შპს - საქართველოს უნივერსიტეტი": {
+    "code": 121,
+    "georgian": "შპს - საქართველოს უნივერსიტეტი",
+    "english": "Ltd - University of Georgia"
+  },
+  "შპს - კავკასიის უნივერსიტეტი": {
+    "code": 122,
+    "georgian": "შპს - კავკასიის უნივერსიტეტი",
+    "english": "Ltd - Caucasus University"
+  },
+  "შპს - უნივერსიტეტი გეომედი": {
+    "code": 129,
+    "georgian": "შპს - უნივერსიტეტი გეომედი",
+    "english": "Ltd - University Geomed"
+  },
+  "სსიპ - ბათუმის ხელოვნების სახელმწიფო უნივერსიტეტი": {
+    "code": 130,
+    "georgian": "სსიპ - ბათუმის ხელოვნების სახელმწიფო უნივერსიტეტი",
+    "english": "LEPL - Batumi State University of Art"
+  },
+  "შპს - საქართველოს საავიაციო უნივერსიტეტი": {
+    "code": 131,
+    "georgian": "შპს - საქართველოს საავიაციო უნივერსიტეტი",
+    "english": "Ltd - Georgian Aviation University"
+  },
+  "სსიპ - გორის სახელმწიფო უნივერსიტეტი": {
+    "code": 133,
+    "georgian": "სსიპ - გორის სახელმწიფო უნივერსიტეტი",
+    "english": "LEPL - Gori State University"
+  },
+  "შპს - ბათუმის ნავიგაციის უნივერსიტეტი ": {
+    "code": 140,
+    "georgian": "შპს - ბათუმის ნავიგაციის უნივერსიტეტი ",
+    "english": "Ltd - University of Batumi Navigation"
+  },
+  "ა(ა)იპ \"საქართველოს საპატრიარქოს წმიდა ტბელ აბუსერისძის სახელობის სასწავლო უნივერსიტეტი\" ": {
+    "code": 142,
+    "georgian": "ა(ა)იპ \"საქართველოს საპატრიარქოს წმიდა ტბელ აბუსერისძის სახელობის სასწავლო უნივერსიტეტი\" ",
+    "english": "\"St. Tbel Abuseridze Teaching University of Georgia\""
+  },
+  "შპს - „საქართველოს საერთაშორისო უნივერსიტეტი ჯიუ“": {
+    "code": 143,
+    "georgian": "შპს - „საქართველოს საერთაშორისო უნივერსიტეტი ჯიუ“",
+    "english": "Ltd - International University of Georgia Jiu"
+  },
+  "ა(ა)იპ - საქართველოს საპატრიარქოს წმიდა ანდრია პირველწოდებულის სახელობის ქართული უნივერსიტეტი": {
+    "code": 145,
+    "georgian": "ა(ა)იპ - საქართველოს საპატრიარქოს წმიდა ანდრია პირველწოდებულის სახელობის ქართული უნივერსიტეტი",
+    "english": "Ip - St. Andrew the First Called Georgian University of St. Andrew the Patriarchate of Georgia"
+  },
+  "შპს საქართველოს ეროვნული უნივერსიტეტი სეუ": {
+    "code": 152,
+    "georgian": "შპს საქართველოს ეროვნული უნივერსიტეტი სეუ",
+    "english": "Georgian National University Ltd Seu"
+  },
+  "ა(ა)იპ - ჯიპა - საქართველოს საზოგადოებრივ საქმეთა ინსტიტუტი ": {
+    "code": 153,
+    "georgian": "ა(ა)იპ - ჯიპა - საქართველოს საზოგადოებრივ საქმეთა ინსტიტუტი ",
+    "english": "(A) Ip - GPA - Georgian Institute of Public Affairs"
+  },
+  "ა(ა)იპ - საქართველოს საპატრიარქოს წმინდა თამარ მეფის სახელობის უნივერსიტეტი": {
+    "code": 154,
+    "georgian": "ა(ა)იპ - საქართველოს საპატრიარქოს წმინდა თამარ მეფის სახელობის უნივერსიტეტი",
+    "english": "St. Tamar University of the Patriarchate of Georgia"
+  },
+  "სსიპ - დავით აღმაშენებლის სახელობის საქართველოს ეროვნული თავდაცვის აკადემია": {
+    "code": 155,
+    "georgian": "სსიპ - დავით აღმაშენებლის სახელობის საქართველოს ეროვნული თავდაცვის აკადემია",
+    "english": "LEPL - David Agmashenebeli National Defense Academy of Georgia"
+  },
+  "შპს - ევროპის უნივერსიტეტი": {
+    "code": 171,
+    "georgian": "შპს - ევროპის უნივერსიტეტი",
+    "english": "Ltd - European University"
+  },
+  "შპს აღმოსავლეთ ევროპის უნივერსიტეტი": {
+    "code": 172,
+    "georgian": "შპს აღმოსავლეთ ევროპის უნივერსიტეტი",
+    "english": "Eastern European University Ltd"
+  },
+  "ა(ა)იპ - გიორგი მთაწმინდელის სახელობის გალობის უნივერსიტეტი": {
+    "code": 177,
+    "georgian": "ა(ა)იპ - გიორგი მთაწმინდელის სახელობის გალობის უნივერსიტეტი",
+    "english": "(A) Ip - George Mtatsmindeli University of Chanting"
+  },
+  "შპს „ახალი უმაღლესი სასწავლებელი-ნიუუნი“": {
+    "code": 181,
+    "georgian": "შპს „ახალი უმაღლესი სასწავლებელი-ნიუუნი“",
+    "english": "New Higher Education Ltd."
+  },
+  "ა(ა)იპ - ნიუ ვიჟენ უნივერსიტეტი": {
+    "code": 183,
+    "georgian": "ა(ა)იპ - ნიუ ვიჟენ უნივერსიტეტი",
+    "english": "A (a) Ip - New Vision University"
+  },
+  "სსიპ საქართველოს ფიზიკური აღზრდისა და სპორტის სახელმწიფო სასწავლო უნივერსიტეტი": {
+    "code": 186,
+    "georgian": "სსიპ საქართველოს ფიზიკური აღზრდისა და სპორტის სახელმწიფო სასწავლო უნივერსიტეტი",
+    "english": "LEPL Georgia State Teaching University of Physical Education and Sport"
+  },
+  "შპს ბაუ ინთერნეიშენალ უნივერსითი, ბათუმი": {
+    "code": 192,
+    "georgian": "შპს ბაუ ინთერნეიშენალ უნივერსითი, ბათუმი",
+    "english": "Bau Inthernal University Ltd. Batumi, Batumi"
+  },
+  "შპს - ბიზნესისა და ტექნოლოგიების უნივერსიტეტი": {
+    "code": 195,
+    "georgian": "შპს - ბიზნესისა და ტექნოლოგიების უნივერსიტეტი",
+    "english": "Ltd - University of Business and Technology"
+  },
+  "სსიპ - ქუთაისის საერთაშორისო უნივერსიტეტი": {
+    "code": 197,
+    "georgian": "სსიპ - ქუთაისის საერთაშორისო უნივერსიტეტი",
+    "english": "LEPL - Kutaisi International University"
+  },
+  "შპს უნივერსიტეტი „ალტერბრიჯი“": {
+    "code": 198,
+    "georgian": "შპს უნივერსიტეტი „ალტერბრიჯი“",
+    "english": "University of Ltd \"Alterbridge\""
+  },
+  "შპს „ბრიტანული უნივერსიტეტი“": {
+    "code": 199,
+    "georgian": "შპს „ბრიტანული უნივერსიტეტი“",
+    "english": "British University Ltd"
+  },
+  "შპს - აღმოსავლეთ-დასავლეთ უნივერსიტეტი": {
+    "code": 201,
+    "georgian": "შპს - აღმოსავლეთ-დასავლეთ უნივერსიტეტი",
+    "english": "Ltd - East -West University"
+  },
+  "ვებსტერ უნივერსიტეტის, ინკ.-ის ფილიალი საქართველოში": {
+    "code": 202,
+    "georgian": "ვებსტერ უნივერსიტეტის, ინკ.-ის ფილიალი საქართველოში",
+    "english": "Branch of Webster University, Ink in Georgia"
+  },
+  "შპს - კენ ვოლკერის საერთაშორისო უნივერსიტეტი": {
+    "code": 203,
+    "georgian": "შპს - კენ ვოლკერის საერთაშორისო უნივერსიტეტი",
+    "english": "Ltd - Ken Walker International University"
+  },
+  "შპს  ,,ნეუ - ეროვნული საგანმანათლებლო უნივერსიტეტი”": {
+    "code": 204,
+    "georgian": "შპს  ,,ნეუ - ეროვნული საგანმანათლებლო უნივერსიტეტი”",
+    "english": "Neu - National Education University Ltd"
+  },
+  "შპს - ავიცენა - ბათუმის სამედიცინო უნივერსიტეტი": {
+    "code": 205,
+    "georgian": "შპს - ავიცენა - ბათუმის სამედიცინო უნივერსიტეტი",
+    "english": "Ltd - Avicenna - Batumi Medical University"
+  },
+  "შპს - თბილისის საერთაშორისო უნივერსიტეტი აიიუთ": {
+    "code": 206,
+    "georgian": "შპს - თბილისის საერთაშორისო უნივერსიტეტი აიიუთ",
+    "english": "Ltd - Tbilisi International University"
+  }
+}
