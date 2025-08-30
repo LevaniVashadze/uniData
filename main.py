@@ -3,7 +3,18 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 
-st.set_page_config(page_title="Grant Data Dashboard", layout="wide")
+st.set_page_config(
+    page_title="2025 Georgian University Grant Data Analysis | Rankings & Statistics",
+    page_icon="📊",
+    layout="wide",
+    initial_sidebar_state="collapsed",
+    menu_items={
+        'Get Help': 'https://levani.is-a.dev',
+        'Report a bug': "https://levani.is-a.dev",
+        'About': "Georgian University Grant Data Analysis Dashboard - Compare universities and programs by grant allocation data from NAEC 2025"
+    }
+)
+
 
 # Mobile-responsive CSS
 st.markdown("""
@@ -77,7 +88,7 @@ st.markdown("""
 # Language translations
 TRANSLATIONS = {
     "en": {
-        "title": "📊 2025 Grant Data Dashboard",
+        "title": "📊 2025 Georgian University Grant Data Analysis",
         "language": "Language",
         "university_level": "🏛️ University Level",
         "program_level": "📚 Program Level",
@@ -206,7 +217,7 @@ TRANSLATIONS = {
         """
     },
     "ka": {
-        "title": "📊 2025 ჩარიცხვის მონაცემები",
+        "title": "📊 2025 ქართული უნივერსიტეტების გრანტების ანალიზი",
         "language": "ენა",
         "university_level": "🏛️ უნივერსიტეტის რენკინგი",
         "program_level": "📚 პროგრამის რენკინგი",
