@@ -128,6 +128,8 @@ TRANSLATIONS = {
         
         **Source URL**: [https://edu.aris.ge/news/2025-wels-charicxulta-ranjirebuli-sia-fakultetebisa-da-archeviti-sagnebis-mixedvit.html](https://edu.aris.ge/news/2025-wels-charicxulta-ranjirebuli-sia-fakultetebisa-da-archeviti-sagnebis-mixedvit.html)
         
+        **⚠️ Important Disclaimer**: This data should not be considered as a single determining indicator of university or program quality. The analysis is based on grant allocation data only and may contain flaws or limitations. Multiple factors should be considered when evaluating educational institutions and programs.
+        
         The analysis focuses specifically on:
         - **Academic programs only** (`აკად/მოსამზად == "აკად"`)
         - Grant percentages of 50%, 70%, and 100% of the base amount
@@ -192,6 +194,8 @@ TRANSLATIONS = {
         2. **Sample bias**: Small programs and universities are excluded, which may affect representativeness
         3. **Data completeness**: Results depend on completeness of source data
         4. **Program classification**: Relies on university-provided program names and classifications
+        5. **Single metric limitation**: Grant percentage alone does not determine program or university quality
+        6. **Potential data flaws**: Source data may contain errors or inconsistencies
         
         ## Technical Implementation
         
@@ -248,6 +252,8 @@ TRANSLATIONS = {
         **მონაცემთა წყარო**: ჩარიცხულთა სია მოპოვებული სახელმწიფო სასწავლო გრანტის მითითებით – აკადემიური (საბაკალავრო) პროგრამები და ქართულ ენაში მომზადების საგანმანათლებლო პროგრამები
         
         **წყაროს ბმული**: [https://edu.aris.ge/news/2025-wels-charicxulta-ranjirebuli-sia-fakultetebisa-da-archeviti-sagnebis-mixedvit.html](https://edu.aris.ge/news/2025-wels-charicxulta-ranjirebuli-sia-fakultetebisa-da-archeviti-sagnebis-mixedvit.html)
+        
+        **⚠️ მნიშვნელოვანი გაფრთხილება**: ეს მონაცემები არ უნდა ჩაითვალოს უნივერსიტეტის ან პროგრამის ხარისხის ერთადერთ განმსაზღვრელ ინდიკატორად. ანალიზი ეყრდნობა მხოლოდ გრანტების განაწილების მონაცემებს და შეიძლება შეიცავდეს ნაკლოვანებებს ან შეზღუდვებს. საგანმანათლებლო დაწესებულებებისა და პროგრამების შეფასებისას გასათვალისწინებელია მრავალი ფაქტორი.
         
         ანალიზი კონკრეტულად ფოკუსირდება:
         - **მხოლოდ აკადემიურ პროგრამებზე, ენის მოსამზადებელი პროგრამების გარეშე** (`აკად/მოსამზად == "აკად"`)
@@ -313,6 +319,8 @@ TRANSLATIONS = {
         2. **ნიმუშის მიკერძოება**: მცირე პროგრამები და უნივერსიტეტები გამოირიცხება, რაც შეიძლება იმოქმედოს რეპრეზენტაციულობაზე
         3. **მონაცემთა სისრულე**: შედეგები დამოკიდებულია წყარო მონაცემების სისრულეზე
         4. **პროგრამების კლასიფიკაცია**: ეყრდნობა უნივერსიტეტის მიერ მოწოდებულ პროგრამების სახელებსა და კლასიფიკაციებს
+        5. **ერთი მეტრიკის შეზღუდვა**: მხოლოდ გრანტის პროცენტი არ განსაზღვრავს პროგრამის ან უნივერსიტეტის ხარისხს
+        6. **პოტენციური მონაცემთა ნაკლოვანებები**: საწყისი მონაცემები შეიძლება შეიცავდეს შეცდომებს ან არათანმიმდევრულობას
         
         ## ტექნიკური იმპლემენტაცია
         
@@ -742,3 +750,14 @@ with tab5:
             "Programs (≥10 students)",
             programs_filtered
         )
+
+# Footer
+st.markdown("---")
+st.markdown(
+    """
+    <div style='text-align: center; color: #666; font-size: 14px; margin-top: 2rem;'>
+        Made by <a href='https://levani.is-a.dev' target='_blank' style='color: #1f77b4; text-decoration: none;'>Levani Vashadze</a>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
