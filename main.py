@@ -5,6 +5,75 @@ import plotly.graph_objects as go
 
 st.set_page_config(page_title="Grant Data Dashboard", layout="wide")
 
+# Mobile-responsive CSS
+st.markdown("""
+<style>
+    /* Mobile optimizations */
+    @media (max-width: 768px) {
+        .main .block-container {
+            padding-top: 1rem;
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+        }
+        
+        /* Make tables scrollable on mobile */
+        .stDataFrame {
+            font-size: 11px;
+        }
+        
+        /* Improve button sizes for touch */
+        .stSelectbox > div > div {
+            font-size: 14px;
+        }
+        
+        /* Better spacing for metrics */
+        [data-testid="metric-container"] {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Adjust tab styling */
+        .stTabs [data-baseweb="tab-list"] {
+            gap: 2px;
+        }
+        
+        .stTabs [data-baseweb="tab"] {
+            padding: 6px 8px;
+            font-size: 11px;
+        }
+        
+        /* Hide legends on mobile for plotly charts */
+        .js-plotly-plot .plotly .legend {
+            display: none !important;
+        }
+        
+        /* Hide color scales on mobile */
+        .js-plotly-plot .plotly .colorbar {
+            display: none !important;
+        }
+    }
+    
+    /* Desktop - show legends positioned underneath */
+    @media (min-width: 769px) {
+        .js-plotly-plot .plotly .legend {
+            display: block !important;
+        }
+        
+        .js-plotly-plot .plotly .colorbar {
+            display: block !important;
+        }
+    }
+    
+    /* Improve touch targets */
+    .stButton > button {
+        min-height: 44px;
+    }
+    
+    .stDownloadButton > button {
+        min-height: 44px;
+    }
+</style>
+""", unsafe_allow_html=True)
+
 # Language translations
 TRANSLATIONS = {
     "en": {
@@ -250,6 +319,7 @@ TRANSLATIONS = {
         - **მონაცემთა დამუშავება**: Python pandas აგრეგაციისა და ფილტრაციისთვის
         - **ვიზუალიზაციები**: Plotly ინტერაქციული დიაგრამებისთვის
         - **ინტერფეისი**: Streamlit ვებ დაშბორდისთვის
+        - **კეშირება**: მონაცემები კეშირდება შესრულების ოპტიმიზაციისთვის
         """
     }
 }
@@ -316,39 +386,57 @@ with tab1:
     fig_grant.update_layout(
         xaxis_title="",
         xaxis_showticklabels=False,
-        height=600
+        height=400,
+        margin=dict(l=20, r=20, t=40, b=20),
+        font=dict(size=10),
+        title_font_size=14,
+        coloraxis_showscale=False  # Hide color scale on mobile
     )
     st.plotly_chart(fig_grant, use_container_width=True)
 
     # Grant distribution stacked bar chart
     st.subheader(t["grant_dist_by_uni"])
-    # Sort by average grant percentage for this chart too
     fig_grants = go.Figure()
     fig_grants.add_trace(go.Bar(
         name=t["50_grant"],
         x=uni_data['უსდ'],
         y=uni_data['სტუდ. 50%'],
-        marker_color='lightblue'
+        marker_color='lightblue',
+        hovertemplate='<b>%{x}</b><br>50% Grant: %{y}<extra></extra>'
     ))
     fig_grants.add_trace(go.Bar(
         name=t["70_grant"],
         x=uni_data['უსდ'],
         y=uni_data['სტუდ. 70%'],
-        marker_color='orange'
+        marker_color='orange',
+        hovertemplate='<b>%{x}</b><br>70% Grant: %{y}<extra></extra>'
     ))
     fig_grants.add_trace(go.Bar(
         name=t["100_grant"],
         x=uni_data['უსდ'],
         y=uni_data['სტუდ. 100%'],
-        marker_color='green'
+        marker_color='green',
+        hovertemplate='<b>%{x}</b><br>100% Grant: %{y}<extra></extra>'
     ))
     fig_grants.update_layout(
         barmode='stack',
         title=t["grant_dist_sorted"],
         xaxis_title="",
-        yaxis_title='Number of Students' if lang == "en" else 'სტუდენტების რაოდენობა',
+        yaxis_title='Students' if lang == "en" else 'სტუდ.',
         xaxis_showticklabels=False,
-        height=600
+        height=450,  # Increased height to accommodate legend underneath
+        margin=dict(l=20, r=20, t=40, b=80),  # Increased bottom margin for legend
+        font=dict(size=10),
+        title_font_size=14,
+        showlegend=True,  # Show legend - will be hidden on mobile via CSS
+        legend=dict(
+            orientation="h",  # Horizontal legend underneath
+            yanchor="top",
+            y=-0.15,  # Position below the chart
+            xanchor="center",
+            x=0.5,
+            font=dict(size=10)
+        )
     )
     st.plotly_chart(fig_grants, use_container_width=True)
 
@@ -370,8 +458,18 @@ with tab1:
                      title=t["grant_money_pie"],
                      hover_data=['სულ სტუდ.', 'საშ. გრანტი %'])
 
-    fig_pie.update_traces(textposition='inside', textinfo='percent+label')
-    fig_pie.update_layout(height=600)
+    fig_pie.update_traces(
+        textposition='inside',
+        textinfo='percent',
+        textfont_size=9
+    )
+    fig_pie.update_layout(
+        height=450,  # Increased height for legend
+        margin=dict(l=10, r=10, t=40, b=80),  # Increased bottom margin for legend
+        font=dict(size=9),
+        title_font_size=14,
+        showlegend=False  # Remove legend from pie chart
+    )
 
     st.plotly_chart(fig_pie, use_container_width=True)
 
@@ -445,10 +543,21 @@ with tab2:
         barmode='stack',
         title=t["top_30_title"],
         xaxis_title="",
-        yaxis_title='Number of Students' if lang == "en" else 'სტუდენტების რაოდენობა',
+        yaxis_title='Students' if lang == "en" else 'სტუდ.',
         xaxis_showticklabels=False,
-        height=800,
-        showlegend=True
+        height=550,  # Increased height for legend
+        margin=dict(l=20, r=20, t=40, b=80),  # Increased bottom margin for legend
+        font=dict(size=10),
+        title_font_size=14,
+        showlegend=True,  # Show legend - will be hidden on mobile via CSS
+        legend=dict(
+            orientation="h",  # Horizontal legend underneath
+            yanchor="top",
+            y=-0.12,  # Position below the chart
+            xanchor="center",
+            x=0.5,
+            font=dict(size=10)
+        )
     )
 
     st.plotly_chart(fig_prog_dist, use_container_width=True)
@@ -508,7 +617,14 @@ with tab3:
     fig_subject.update_layout(
         xaxis_title="",
         xaxis_tickangle=45,
-        height=600
+        height=450,
+        margin=dict(l=20, r=20, t=40, b=80),
+        font=dict(size=10),
+        title_font_size=14,
+        coloraxis_showscale=False,  # Hide color scale
+        xaxis=dict(
+            tickfont=dict(size=8)
+        )
     )
     st.plotly_chart(fig_subject, use_container_width=True)
 
